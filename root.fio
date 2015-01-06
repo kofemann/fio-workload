@@ -1,0 +1,34 @@
+;
+; workload to simulate ROOT IO workload
+;
+[global]
+description=ROOT IO like workload
+ioengine=sync
+opendir=/pnfs/desy.de/dcache-dot06/atlas/dq2/atlaslocalgroupdisk/mc10_7TeV/NTUP_SUSY5
+randrepeat=1
+openfiles=1
+nrfiles=100
+file_service_type=sequential
+
+[hdr]
+rw=read
+bs=32k
+size=32k
+stonewall
+
+[tree]
+rw=randread:8
+blocksize_range=512-4k
+blocksize_unaligned
+size=512k
+stonewall
+
+[data]
+offset=0
+rw=randread:4
+rw_sequencer=sequential
+;blocksize_range=4k-4m
+bssplit=4k/5:8k/25:64k/20:10m/50
+blocksize_unaligned
+stonewall
+
