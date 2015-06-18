@@ -7,7 +7,8 @@ ioengine=sync
 opendir=/pnfs/desy.de/dcache-dot06/atlas/dq2/atlaslocalgroupdisk/mc10_7TeV/NTUP_SUSY5
 randrepeat=1
 openfiles=1
-file_service_type=sequential
+file_service_type=random
+runtime=600
 
 [hdr]
 rw=read
@@ -26,8 +27,8 @@ stonewall
 offset=0
 rw=randread:4
 rw_sequencer=sequential
-;blocksize_range=4k-4m
-bssplit=4k/5:8k/25:64k/20:10m/50
+;blocksize_range=4k-16m
+bssplit=4k/5:128k/25:1m/20:16m/50
 blocksize_unaligned
 stonewall
 
