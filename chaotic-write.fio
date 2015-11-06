@@ -1,0 +1,17 @@
+[global]
+description=Chaotic IO workload
+ioengine=sync
+randrepeat=1
+openfiles=1
+fallocate=none
+size=16G
+nrfiles=8
+unlink=1
+
+
+[randwrite]
+rw=randwrite
+rw_sequencer=sequential
+bssplit=4k/5:128k/25:1m/20:16m/50
+blocksize_unaligned
+stonewall
