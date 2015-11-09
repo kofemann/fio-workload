@@ -2,6 +2,7 @@
 description=Chaotic IO workload
 ioengine=sync
 randrepeat=1
+create_on_open=1
 openfiles=1
 fallocate=none
 size=16G
