@@ -1,0 +1,45 @@
+;
+; FIO workload to stream data to the server and read it back.
+;
+; block verification information is forced on write, which is
+; used during read workloads.
+;
+
+[global]
+directory=/pnfs/t
+filename=fio_test.dat
+; file size
+size=16g
+; IO block size
+bs=1024k
+; direct IO
+direct=0
+sync=0
+ioengine=sync
+iodepth=1
+; do not pre-create files
+create_on_open=1
+; checksum type
+verify=sha1
+; fail on first checksum error
+verify_fatal=1
+
+[seqwrite]
+description=IO WRITE test
+rw=write
+; do not check sum during write
+do_verify=0
+; block until job is done before jumping to the next section
+stonewall
+
+[seqread]
+description=IO READ test
+rw=read
+; check checksum during read
+do_verify=1
+; remove file at the and
+unlink=1
+stonewall
+
+; -- end job file --
+
