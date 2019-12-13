@@ -1,0 +1,16 @@
+;
+; Job to create multiple files in a loop
+;
+
+[concurrent-writes]
+description=Workload to generate multiple files
+ioengine=sync
+rw=write
+filesize=8k
+size=1m
+numjobs=24
+;thread
+create_on_open=1
+loops=1000
+unlink_each_loop=1
+unlink=1
