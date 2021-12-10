@@ -1,0 +1,27 @@
+;
+; chaotic analysis workload
+;
+[global]
+description=XFEL read IO wrkload
+ioengine=sync
+iodepth=128
+direct=0
+opendir=/pnfs/xfel.eu/exfel/disk/CHECK/raw/SPB/201802/p002160/r0198/
+randrepeat=1
+; use threads in multi-job case
+thread=1
+group_reporting
+openfiles=1
+file_service_type=random
+; use always the same seed for all random ops
+allrandrepeat=1
+
+[data]
+offset=0
+; 4 reads, before changing the offset
+rw=randread:4
+rw_sequencer=sequential
+;blocksize_range=4k-16m
+bssplit=4k/5:128k/25:1m/20:16m/50
+blocksize_unaligned
+stonewall
