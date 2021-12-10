@@ -24,4 +24,5 @@ rw_sequencer=sequential
 ;blocksize_range=4k-16m
 bssplit=4k/5:128k/25:1m/20:16m/50
 blocksize_unaligned
+lockfile=readwrite
 stonewall
