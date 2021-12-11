@@ -30,7 +30,7 @@ percentile_list=50.0:95.0:99.9
 disk_util=0
 
 
-[data]
+[analysis-like-access]
 offset=0
 ; 4 reads, before changing the offset
 rw=randread:4
@@ -41,4 +41,10 @@ bssplit=4k/5:128k/25:1m/20:4m/50
 blocksize_unaligned
 ; user read locks
 lockfile=readwrite
+stonewall
+
+
+[streaming-access]
+rw=read
+bs=4m
 stonewall
