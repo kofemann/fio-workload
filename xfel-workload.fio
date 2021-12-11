@@ -10,11 +10,25 @@ opendir=/pnfs/xfel.eu/exfel/disk/CHECK/raw/SPB/201802/p002160/r0198/
 randrepeat=1
 ; use threads in multi-job case
 thread=1
-group_reporting
 openfiles=1
 file_service_type=random
 ; use always the same seed for all random ops
 allrandrepeat=1
+
+;
+; adjust outout
+;
+
+; group reports of multiple jobs
+group_reporting
+; keep only completion latency
+disable_slat=1
+lat_percentiles=0
+; don't go crazy with percentiles
+percentile_list=50.0:95.0:99.9
+; we test NFS, no disk statistics is needed
+disk_util=0
+
 
 [data]
 offset=0
@@ -22,7 +36,9 @@ offset=0
 rw=randread:4
 rw_sequencer=sequential
 ;blocksize_range=4k-16m
-bssplit=4k/5:128k/25:1m/20:16m/50
+; 5% 4k, 20% 128k, 25% 1M, 50% 4m
+bssplit=4k/5:128k/25:1m/20:4m/50
 blocksize_unaligned
+; user read locks
 lockfile=readwrite
 stonewall
