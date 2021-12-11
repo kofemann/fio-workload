@@ -3,7 +3,7 @@
 ;
 [global]
 description=XFEL read IO wrkload
-ioengine=sync
+ioengine=psync
 iodepth=128
 direct=0
 opendir=/pnfs/xfel.eu/exfel/disk/CHECK/raw/SPB/201802/p002160/r0198/
