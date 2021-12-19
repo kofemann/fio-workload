@@ -2,7 +2,7 @@
 ; chaotic analysis workload
 ;
 [global]
-description=XFEL read IO wrkload
+description=XFEL read IO workload
 ioengine=psync
 iodepth=1
 direct=0
