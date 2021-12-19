@@ -1,0 +1,31 @@
+;
+; workload that generates sequential write
+;
+[seq-write]
+description=sequential write workload
+ioengine=sync
+filename_format=$jobname-$jobnum-$filenum
+create_on_open=1
+file_service_type=sequential
+create_serialize=1
+rw=write
+; fsync_on_close=1
+
+;
+; Config section
+;
+;
+
+; default current directory
+;directory=
+
+; delete on exit
+unlink=1
+
+; file size range
+filesize=4m:6m
+nrfiles=1000
+bs=512k
+
+
+
