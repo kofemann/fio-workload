@@ -14,7 +14,7 @@
 [global]
 filename_format=fio-test-$jobnum-$filenum
 ; file size
-size=1g
+size=100g
 ioengine=libaio
 ; do not pre-create files
 create_on_open=1
